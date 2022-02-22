@@ -7,16 +7,16 @@ const emoji = require("emoji-dictionary");
 
 const Home: NextPage = () => {
   return (
-    <Box backgroundColor="yellow.100" minW="100vw" minH="100vh">
+    <Box backgroundColor="yellow.100" minW="100vw" minH={["89vh", "100vh"]}>
       <Center>
-        <VStack marginTop="20vh" maxW={["75vw"]}>
-          <Text fontSize={"7vw"}>
-            <Link color="purple.400" href="https://twitter.com/ByJustinSingh" isExternal>justin singh</Link>
+        <VStack marginTop={["30vh", "20vh"]} maxW={["75vw"]}>
+          <Text fontSize={["7.5vw", "7vw"]}>
+            <Link fontWeight={["bold"]} fontStyle="italic" color="purple.400" href="https://twitter.com/ByJustinSingh" isExternal>justin singh</Link>
             {" is figuring out what "}
-            <Link color="pink.400" href="https://twitter.com/web3toons" isExternal>web3toons</Link>
+            <Link fontWeight={["bold"]} fontStyle="italic" color="pink.400" href="https://twitter.com/web3toons" isExternal>web3toons</Link>
             {" is!"}
           </Text>
-          <Text fontSize={"7vw"}>ty for your interest {emoji.getUnicode("two_hearts")}</Text>
+          <Text fontSize={"6vw"}>ty for your interest {emoji.getUnicode("two_hearts")}</Text>
         </VStack>
       </Center >
     </Box>
