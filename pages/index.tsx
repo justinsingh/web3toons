@@ -7,7 +7,7 @@ const emoji = require("emoji-dictionary");
 
 const Home: NextPage = () => {
   return (
-    <Box backgroundColor="yellow.100" minW="100vw" minH={["89vh", "100vh"]}>
+    <Box backgroundColor="yellow.100" minW="100vw" minH={["100vh", "100vh"]}>
       <Center>
         <VStack marginTop={["30vh", "20vh"]} maxW={["75vw"]}>
           <Text fontSize={["7.5vw", "7vw"]}>
