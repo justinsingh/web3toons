@@ -2,6 +2,7 @@ import { Box, VStack } from "@chakra-ui/react";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { NextPage } from "next";
+import { Suspense } from "react";
 import FroggyModel from "../../components/models/FroggyModel";
 
 const Froggy: NextPage = () => {
@@ -11,7 +12,9 @@ const Froggy: NextPage = () => {
         <Canvas>
           <ambientLight intensity={0.1} />
           <directionalLight position={[0, 0, 5]} />
-          <FroggyModel />
+          <Suspense fallback={null}>
+            <FroggyModel />
+          </Suspense>
           <OrbitControls />
         </Canvas>
       </Box>
