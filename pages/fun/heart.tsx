@@ -9,15 +9,15 @@ import { Box, VStack } from '@chakra-ui/react'
 const Heart: NextPage = () => {
   return (
     <VStack>
-      <Box width={["80vw"]} height={["80vh"]}>
-        <Canvas camera={{ fov: 5, position: [0, 0, 5] }}>
-          <Suspense fallback={null}>
-            <OrbitControls />
-            <pointLight position={[10, 10, 10]} />
-            <WavyPlane />
-          </Suspense>
-        </Canvas>
-      </Box>
+        <Box width={["100vw"]} height={["100vh"]} backgroundColor="black">
+          <Canvas camera={{ fov: 5, position: [0, 0, 125] }} color="black">
+            <Suspense fallback={null}>
+              <OrbitControls />
+              <pointLight position={[10, 10, 10]} />
+              <WavyPlane />
+            </Suspense>
+          </Canvas>
+        </Box>
     </VStack>
   )
 }
