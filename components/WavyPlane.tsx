@@ -67,7 +67,7 @@ const WavyPlane = () => {
 
   return (
     <mesh rotation={[0, 0, 0]}>
-      <planeBufferGeometry args={[0.6, 0.4, 16, 16]} />
+      <planeBufferGeometry args={[20.6, 14.2, 16, 16]} />
       <waveShaderMaterial uColor={"hotpink"} ref={ref} uTexture={image} />
     </mesh>
   )
