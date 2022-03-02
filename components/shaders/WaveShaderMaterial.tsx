@@ -10,6 +10,8 @@ const WaveShaderMaterial = shaderMaterial(
     uTime: 0,
     uColor: new THREE.Color(0.0, 0.0, 0.0),
     uTexture: new THREE.Texture(),
+    uNoiseFreq: 0,
+    uNoiseAmp: 0,
   },
   // Vertex Shader
   glsl`
@@ -19,6 +21,8 @@ const WaveShaderMaterial = shaderMaterial(
     varying float vWave;
 
     uniform float uTime;
+    uniform float uNoiseFreq;
+    uniform float uNoiseAmp;
 
     #pragma glslify: snoise3 = require(glsl-noise/simplex/3d);
 
@@ -26,8 +30,8 @@ const WaveShaderMaterial = shaderMaterial(
       vUv = uv;
 
       vec3 pos = position;
-      float noiseFreq = 1.5;
-      float noiseAmp = 0.05; 
+      float noiseFreq = uNoiseFreq;
+      float noiseAmp = uNoiseAmp; 
       vec3 noisePos = vec3(pos.x * noiseFreq + uTime, pos.y, pos.z);
       pos.z += snoise3(noisePos) * noiseAmp;
       vWave = pos.z;
