@@ -5,7 +5,12 @@ import { extend, useFrame, useLoader } from "@react-three/fiber"
 import WaveShaderMaterial from "./shaders/WaveShaderMaterial"
 extend({ WaveShaderMaterial });
 
-const WavyPlane = () => {
+type WavyBlackGridPlaneProps = {
+  uNoiseFreq: number,
+  uNoiseAmp: number
+}
+
+const WavyBlackGridPlane = ({uNoiseFreq, uNoiseAmp}: WavyBlackGridPlaneProps) => {
   const ref = useRef();
   useFrame(({clock}) => (ref.current.uTime = clock.getElapsedTime()));
 
@@ -16,9 +21,9 @@ const WavyPlane = () => {
   return (
     <mesh rotation={[0, 0, 0]}>
       <planeBufferGeometry args={[20.6, 14.2, 16, 16]} />
-      <waveShaderMaterial ref={ref} uColor={"hotpink"} uTexture={image} uNoiseFreq={1.5} uNoiseAmp={0.05}/>
+      <waveShaderMaterial ref={ref} uColor={"hotpink"} uTexture={image} uNoiseFreq={uNoiseFreq} uNoiseAmp={uNoiseAmp}/>
     </mesh>
   )
 }
 
-export default WavyPlane
+export default WavyBlackGridPlane
