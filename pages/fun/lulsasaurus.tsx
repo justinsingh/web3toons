@@ -2,7 +2,7 @@
 import * as THREE from "three"
 import type { NextPage } from 'next'
 import { Suspense, useRef } from 'react'
-import WavyPlane from '../../components/WavyPlane'
+import WavyBlackGridPlane from "../../components/WavyPlane"
 import { Canvas, extend } from '@react-three/fiber'
 import { OrbitControls, Sphere } from '@react-three/drei'
 import { Box, VStack } from '@chakra-ui/react'
@@ -35,7 +35,7 @@ const Heart: NextPage = () => {
           <Suspense fallback={null}>
             <OrbitControls />
             <pointLight position={[10, 10, 15]} />
-            <WavyPlane />
+            <WavyBlackGridPlane uNoiseFreq={1.5} uNoiseAmp={0.05} />
             <RedSphere />
             <EffectComposer>
               <Pixelation granularity={0} />
