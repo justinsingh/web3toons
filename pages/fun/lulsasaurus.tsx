@@ -6,18 +6,21 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Sphere } from '@react-three/drei'
 import { Box, VStack } from '@chakra-ui/react'
 import { ChromaticAberration, EffectComposer, Pixelation, Glitch, Noise } from '@react-three/postprocessing'
+import { useMediaQuery } from '@chakra-ui/react'
 
 // Alternate name ideas: Love Sick, In Pursuit of Romance (prolly save this one for a bigger idea)
 const Heart: NextPage = () => {
+  const [isMobile] = useMediaQuery("(max-width: 30em)");
+
   return (
     <VStack>
       <Box width={["100vw"]} height={["100vh"]} backgroundColor="black">
-        <Canvas camera={{ fov: 5, position: [0, 0, 125] }} color="black">
+        <Canvas camera={{ fov: (isMobile ? 6 : 5), position: [0, 0, 125] }} color="black">
           <Suspense fallback={null}>
             <OrbitControls />
             <pointLight position={[10, 10, 15]} />
             <WavyPlane />
-            <Sphere scale={3.0} position={[0, 0, 4]}>
+            <Sphere scale={isMobile ? 2.0 : 3.0} position={[0, 0, 4]}>
               <meshPhongMaterial attach="material" color="red" />
               <EffectComposer>
                 <Pixelation granularity={0} />
