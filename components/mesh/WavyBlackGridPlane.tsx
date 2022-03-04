@@ -2,7 +2,7 @@
 import * as THREE from "three"
 import { useRef } from "react"
 import { extend, useFrame, useLoader } from "@react-three/fiber"
-import WaveShaderTextureMaterial from "./shaders/WaveShaderTexureMaterial"
+import WaveShaderTextureMaterial from "../shaders/WaveShaderTexureMaterial"
 extend({ WaveShaderTextureMaterial });
 
 type WavyBlackGridPlaneProps = {
