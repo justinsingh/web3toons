@@ -2,7 +2,7 @@
 import * as THREE from "three"
 import type { NextPage } from 'next'
 import { Suspense, useRef } from 'react'
-import WavyBlackGridPlane from "../../components/WavyPlane"
+import WavyBlackGridPlane from "../../components/mesh/WavyBlackGridPlane"
 import { Canvas, extend } from '@react-three/fiber'
 import { OrbitControls, Sphere } from '@react-three/drei'
 import { Box, VStack } from '@chakra-ui/react'

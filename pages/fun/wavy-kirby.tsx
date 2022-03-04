@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { Suspense } from 'react'
-import WavyKirby from '../../components/WavyKirby'
+import WavyKirby from '../../components/mesh/WavyKirby'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { Box, VStack } from '@chakra-ui/react'
