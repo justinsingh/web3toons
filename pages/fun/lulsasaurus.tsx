@@ -8,9 +8,6 @@ import { OrbitControls, Sphere } from '@react-three/drei'
 import { Box, VStack } from '@chakra-ui/react'
 import { ChromaticAberration, EffectComposer, Pixelation, Glitch, Noise } from '@react-three/postprocessing'
 import { useMediaQuery } from '@chakra-ui/react'
-import WaveShaderMaterial from "../../components/shaders/WaveShaderMaterial"
-extend({ WaveShaderMaterial })
-
 
 const RedSphere = () => {
   const [isMobile] = useMediaQuery("(max-width: 30em)");
