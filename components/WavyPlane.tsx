@@ -2,8 +2,8 @@
 import * as THREE from "three"
 import { useRef } from "react"
 import { extend, useFrame, useLoader } from "@react-three/fiber"
-import WaveShaderMaterial from "./shaders/WaveShaderMaterial"
-extend({ WaveShaderMaterial });
+import WaveShaderTextureMaterial from "./shaders/WaveShaderTexureMaterial"
+extend({ WaveShaderTextureMaterial });
 
 type WavyBlackGridPlaneProps = {
   uNoiseFreq: number,
@@ -21,7 +21,7 @@ const WavyBlackGridPlane = ({uNoiseFreq, uNoiseAmp}: WavyBlackGridPlaneProps) =>
   return (
     <mesh rotation={[0, 0, 0]}>
       <planeBufferGeometry args={[20.6, 14.2, 16, 16]} />
-      <waveShaderMaterial ref={ref} uColor={"hotpink"} uTexture={image} uNoiseFreq={uNoiseFreq} uNoiseAmp={uNoiseAmp}/>
+      <waveShaderTextureMaterial ref={ref} uColor={"hotpink"} uTexture={image} uNoiseFreq={uNoiseFreq} uNoiseAmp={uNoiseAmp}/>
     </mesh>
   )
 }
