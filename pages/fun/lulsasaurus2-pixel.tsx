@@ -3,19 +3,30 @@ import * as THREE from "three"
 import type { NextPage } from 'next'
 import { Suspense, useRef } from 'react'
 import WavyBlackGridPlane from "../../components/mesh/WavyBlackGridPlane"
-import { Canvas, extend } from '@react-three/fiber'
-import { OrbitControls, Sphere } from '@react-three/drei'
+import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
+import { meshBounds, OrbitControls, Sphere } from '@react-three/drei'
 import { Box, VStack } from '@chakra-ui/react'
 import { ChromaticAberration, EffectComposer, Pixelation, Glitch, Noise } from '@react-three/postprocessing'
 import { useMediaQuery } from '@chakra-ui/react'
 
+import GroovyMaterial from "../../components/shaders/GroovyMaterial"
+extend({ GroovyMaterial })
+
+
 const RedSphere = () => {
+
+const { viewport } = useThree();
   const [isMobile] = useMediaQuery("(max-width: 30em)");
   const ref = useRef();
 
+  useFrame(({ clock }) => {
+    ref.current.uTime = clock.getElapsedTime();
+    //ref.current.rotation.y = clock.getElapsedTime() / 1;
+  });
+
   return (
-    <Sphere scale={isMobile ? 2.0 : 3.0} position={[0, 0, 4]} ref={this}>
-      <meshPhongMaterial attach="material" color="red" />
+    <Sphere scale={isMobile ? 2.0 : 3.0} position={[0, 0, 4]} rotation={[0,0,0]}>
+      <groovyMaterial ref={ref} uColor1="purple" uColor2="red" />
     </Sphere>
 
   )
