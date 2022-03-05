@@ -1,5 +1,4 @@
 import * as THREE from "three"
-import { extend } from "@react-three/fiber"
 import { shaderMaterial } from "@react-three/drei"
 //@ts-ignore
 import glsl from "babel-plugin-glsl/macro"
@@ -9,7 +8,6 @@ const WaveShaderMaterial = shaderMaterial(
   {
     uTime: 0,
     uColor: new THREE.Color(0.0, 0.0, 0.0),
-    uTexture: new THREE.Texture(),
     uNoiseFreq: 0,
     uNoiseAmp: 0,
   },
@@ -45,15 +43,13 @@ const WaveShaderMaterial = shaderMaterial(
 
     uniform vec3 uColor;
     uniform float uTime;
-    uniform sampler2D uTexture;
     
     varying vec2 vUv;
     varying float vWave;
 
     void main() {
       float wave = vWave * 0.1;
-      vec3 texture = texture2D(uTexture, vUv + wave).rgb;
-      gl_FragColor = vec4(texture, 1.0);
+      gl_FragColor = vec4(uColor, 1.0);
     }
   `
 )
